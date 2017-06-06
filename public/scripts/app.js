@@ -1,32 +1,53 @@
-/* CLIENT-SIDE JS
- *
- * This is your main angular file. Edit as you see fit.
- *
- */
- angular
- .module('tunely', [])
- .controller('AlbumsIndexController', AlbumsIndexController);
+angular
+   .module('tunely', [])
+   .controller('AlbumsIndexController', AlbumsIndexController);
 
-  function AlbumsIndexController () {
+function AlbumsIndexController() {
   var vm = this;
   vm.newAlbum = {};
+  vm.albums = [];
 
-  vm.newAlbum = {
-      name: 'License to Ill',
-      artistName: 'Beastie Boys'
+ vm.albums = [
+    {
+      albumName: 'Coming Home',
+      artistName: 'Leon Bridges'
+    },
+    {
+      albumName: 'The Queen is Dead',
+      artistName: 'The Smiths'
+    },
+    {
+      albumName: 'Are We There',
+      artistName: 'Sharon Van Etten'
+    },
+    {
+      albumName: 'Darkside of the Moon',
+      artistName: 'Pink Floyd'
+    },
+    {
+      albumName: 'Lateralus',
+      artistName: 'Tool'
+    },
+    {
+      albumName: 'Play',
+      artistName: 'Moby'
+    },
+    {
+      albumName: 'Museum of Consciousness',
+      artistName: 'Shpongle'
+    },
+    {
+      albumName: 'Youth',
+      artistName: 'Matisyahu'
+    },
+    {
+      albumName: 'Band of Gypsys',
+      artistName: 'Jimi Hendrix'
+    },
+  ];
+
+ vm.newAlbum = {
+   albumName: 'License to Ill',
+   artistName: 'Beastie Boys'
   };
 }
-vm.albums = [
-  {
-    name: 'Coming Home',
-    artistName: 'Leon Bridges'
-  },
-  {
-    name: 'Are We There',
-    artistName: 'Sharon Van Etten'
-  },
-  {
-    name: 'The Queen is Dead',
-    artistName: 'The Smiths'
-  }
-];

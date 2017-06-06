@@ -21,22 +21,26 @@
 
 </head>
 
-<body>
-  <div class="jumbotron">
-    <div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">
-      <h1>Welcome to tunely</h1>
-      <p>Your music binder!</p>
-      <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
-      <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
-      <p><b>albumsIndexCtrl.name: </b>{{albumsIndexCtrl.newAlbum}}</p>
-      <div ng-repeat="album in albumsIndexCtrl.albums">
-        {{album}}
+
+  <body>
+      <div class="jumbotron">
+        <div class="container">
+          <h1>Welcome to tunely</h1>
+          <p>Your music binder!</p>
+        </div>
       </div>
-    </div>
 
-  </div>
-
-</body>
-
-
+     <div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">
+        <!--html inside of here can use the information from the AlbumsIndexController-->
+        <p>Added new </b>album: "{{albumsIndexCtrl.newAlbum.albumName}}", by arist: "{{albumsIndexCtrl.newAlbum.artistName}}"</p>
+        <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.albumName">
+        <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
+        <br>
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+        <div ng-repeat="album in albumsIndexCtrl.albums | orderBy : 'artistName' : true | filter : searchText">
+        <br>
+          {{album.albumName}} by {{album.artistName}}
+        </div>
+      </div>
+    </body>
 </html>
