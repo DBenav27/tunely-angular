@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" ng-app="tunely">
 
-    <title>tunely</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/styles/styles.css">
+  <title>tunely</title>
 
-    <!-- VENDOR SCRIPTS -->
-    <script src="/vendor/angular/angular.min.js"></script>
-    <script src="/vendor/angular-route/angular-route.min.js"></script>
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/styles/styles.css">
 
-    <!-- APPLICATION SCRIPTS -->
-    <script src="/scripts/app.js"></script>
+  <!-- VENDOR SCRIPTS -->
+  <script src="/vendor/angular/angular.min.js"></script>
+  <script src="/vendor/angular-route/angular-route.min.js"></script>
 
-  </head>
-  <body>
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Welcome to tunely</h1>
-        <p>Your music binder!</p>
+  <!-- APPLICATION SCRIPTS -->
+  <script src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+  <div class="jumbotron">
+    <div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">
+      <h1>Welcome to tunely</h1>
+      <p>Your music binder!</p>
+      <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
+      <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
+      <p><b>albumsIndexCtrl.name: </b>{{albumsIndexCtrl.newAlbum}}</p>
+      <div ng-repeat="album in albumsIndexCtrl.albums">
+        {{album}}
       </div>
     </div>
-  </body>
+
+  </div>
+
+</body>
+
 
 </html>
